@@ -3,12 +3,11 @@ https://kanaszewska.github.io/BMITypeScript/
 
 
 # Technologies Used
-HTML5
-
-CSS3
-
-JavaScript
-
+* HTML5
+* CSS3
+* JavaScript
+* React
+* TypeScript
 
 
 # Screenshots
