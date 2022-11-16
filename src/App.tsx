@@ -1,105 +1,115 @@
-import React, { useState } from 'react';
-import './App.css';
-
+import React, { useEffect, useState } from 'react'
+import './App.css'
 
 function App() {
-const [weight, setWeight] = useState<number | undefined>(undefined);
-const [height, setHeight] = useState<number | undefined>(undefined);
-const [bmi, setBmi] = useState<number | string>(0);
-const [message, setMessage] = useState<string>('');
+  const [weight, setWeight] = useState<string>()
+  const [height, setHeight] = useState<string>()
+  const [bmi, setBmi] = useState<number | string>(0)
+  const [message, setMessage] = useState<string>('')
 
-const handleOnChangeWeighth = (e: any): void => {
-  setWeight(e.target.value);
-};
+  const handleOnChangeWeighth = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    const { value } = event.target
+    setWeight(value)
+  }
 
-const handleOnChangeHeight = (e: any): void => {
-  setHeight(e.target.value);
-};
+  const handleOnChangeHeight = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    const { value } = event.target
+    setHeight(value)
+  }
 
-let calcBmi = (event: any): void => {
-  event.preventDefault();
+  let calcBmi = (event: any): void => {
+    event.preventDefault()
 
-  const re = /^(0|[1-9]\d*)([.]\d*)?$/;
+    const re = /^(0|[1-9]\d*)([.]\d*)?$/
 
-  if (weight === undefined || height === undefined) {
-    alert("Please enter your details");
-  } else if (height > 3 ){
-    alert ("Please enter your height in meters!");
-  } else if (!(re.test(height.toString())) || !(re.test(weight.toString())) ) {
-    alert("Please enter numbers or a fraction after the dot!");
-  } else {
-    setBmi(( weight / (height * height)).toFixed(1));
+    if (weight === undefined || height === undefined) {
+      alert('Please enter your details')
+    } else if (!re.test(height.toString()) || !re.test(weight.toString())) {
+      alert('Please enter numbers')
+    } else {
+      setBmi(
+        (
+          parseInt(weight) /
+          ((parseInt(height) * parseInt(height)) / 10000)
+        ).toFixed(1),
+      )
+    }
+  }
 
+  useEffect(() => {
     if (bmi < 18.5) {
-      setMessage('You are underweight');
+      setMessage('You are underweight')
     } else if (bmi >= 18.5 && bmi < 25) {
-      setMessage('You have the correct weight');
+      setMessage('You have the correct weight')
     } else if (bmi >= 25 && bmi < 30) {
-      setMessage ('You are overweight');
-    } else if ( bmi >=30 && bmi < 35) {
-      setMessage('You have 1st degree obesity');
-     } else if ( bmi >= 35) {
-      setMessage('You have obesity treated clinically');
-     };
-    };
-  };
-  
-let imgSrc;
+      setMessage('You are overweight')
+    } else if (bmi >= 30 && bmi < 35) {
+      setMessage('You have 1st degree obesity')
+    } else if (bmi >= 35) {
+      setMessage('You have obesity treated clinically')
+    }
+  }, [bmi])
 
-if (bmi < 1) {
-  imgSrc = null 
-} else {
-if (bmi < 18.5 ) {
-  imgSrc = require('./images/img1.jpg')
-} else if (bmi >= 18.5 && bmi < 25) {
-  imgSrc = require('./images/img2.jpg')
-} else if (bmi >= 25 && bmi < 30) {
-  imgSrc = require('./images/img3.jpg')
-} else if ( bmi >=30 && bmi < 35) {
-  imgSrc = require('./images/img4.jpg')
- } else if ( bmi >= 35) {
-  imgSrc = require('./images/img5.jpg')
- }
-}
+  let imgSrc
 
-let reload = () => { 
-window.location.reload()
-}
+  if (bmi < 18.5) {
+    imgSrc = require('./images/img1.jpg')
+  } else if (bmi >= 18.5 && bmi < 25) {
+    imgSrc = require('./images/img2.jpg')
+  } else if (bmi >= 25 && bmi < 30) {
+    imgSrc = require('./images/img3.jpg')
+  } else if (bmi >= 30 && bmi < 35) {
+    imgSrc = require('./images/img4.jpg')
+  } else if (bmi >= 35) {
+    imgSrc = require('./images/img5.jpg')
+  }
 
-  return(
-    <div className='app'>
-      <div className='container'>
-        <h2 className='center'>Calculator BMI</h2>
-        <form onSubmit={calcBmi}>
+  let reload = () => {
+    window.location.reload()
+  }
+
+  return (
+    <div className="app">
+      <div className="container">
+        <h2 className="center">Calculator BMI</h2>
+        <form>
           <div>
             <label>Weight (kg)</label>
-            <input 
+            <input
               value={weight}
               onChange={handleOnChangeWeighth}
-              placeholder = 'Enter weight...' />
+              placeholder="Enter weight..."
+            />
           </div>
           <div>
-            <label>Height (m)</label>
-            <input 
+            <label>Height (cm)</label>
+            <input
               value={height}
               onChange={handleOnChangeHeight}
-              placeholder = 'Enter height...' />
+              placeholder="Enter height..."
+            />
           </div>
           <div>
-            <button className='btn' type='submit'>Calculate</button>
-            <button className='btn-outline' onClick={reload} type='submit'>Refresh</button>
+            <button className="btn" onClick={calcBmi} type="submit">
+              Calculate
+            </button>
+            <button className="btn-outline" onClick={reload} type="submit">
+              Refresh
+            </button>
           </div>
         </form>
-        <div className='center'>
-          <h3>Your BMI is {bmi}</h3>
-          <p>{message}</p>
+        <div className="center">
+          {bmi ? <h3>Your BMI is {bmi}</h3> : null}
+          {bmi ? <p>{message}</p> : null}
         </div>
-        <div className='images'>
-          <img src={imgSrc} alt="" />
-        </div>
+        <div className="images">{bmi ? <img src={imgSrc} alt="" /> : null}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
