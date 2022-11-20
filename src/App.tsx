@@ -21,7 +21,9 @@ function App() {
     setHeight(value)
   }
 
-  let calcBmi = (event: any): void => {
+  let calcBmi = (
+    event: React.FormEvent<HTMLButtonElement>
+    ): void => {
     event.preventDefault()
 
     const re = /^(0|[1-9]\d*)([.]\d*)?$/
