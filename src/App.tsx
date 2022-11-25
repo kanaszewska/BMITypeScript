@@ -1,78 +1,82 @@
-import React, { useEffect, useState } from 'react'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Modal from "./Modal";
 
 function App() {
-  const [weight, setWeight] = useState<string>()
-  const [height, setHeight] = useState<string>()
-  const [bmi, setBmi] = useState<number | string>(0)
-  const [message, setMessage] = useState<string>('')
+  const [weight, setWeight] = useState<string>();
+  const [height, setHeight] = useState<string>();
+  const [bmi, setBmi] = useState<number | string>(0);
+  const [message, setMessage] = useState<string>("");
+  const [show, setShow] = useState<boolean>(false);
 
   const handleOnChangeWeighth = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    const { value } = event.target
-    setWeight(value)
-  }
+    const { value } = event.target;
+    setWeight(value);
+  };
 
   const handleOnChangeHeight = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    const { value } = event.target
-    setHeight(value)
-  }
+    const { value } = event.target;
+    setHeight(value);
+  };
 
-  let calcBmi = (
-    event: React.FormEvent<HTMLButtonElement>
-    ): void => {
-    event.preventDefault()
+  const handleOnClick = () => {
+    setShow(false);
+  };
 
-    const re = /^(0|[1-9]\d*)([.]\d*)?$/
+  let calcBmi = (event: React.FormEvent<HTMLButtonElement>): void => {
+    event.preventDefault();
+
+    const re = /^(0|[1-9]\d*)([.]\d*)?$/;
 
     if (weight === undefined || height === undefined) {
-      alert('Please enter your details')
+      setShow(true);
     } else if (!re.test(height.toString()) || !re.test(weight.toString())) {
-      alert('Please enter numbers')
+      setShow(true);
     } else {
       setBmi(
         (
           parseInt(weight) /
           ((parseInt(height) * parseInt(height)) / 10000)
-        ).toFixed(1),
-      )
+        ).toFixed(1)
+      );
     }
-  }
+  };
 
   useEffect(() => {
     if (bmi < 18.5) {
-      setMessage('You are underweight')
+      setMessage("You are underweight");
     } else if (bmi >= 18.5 && bmi < 25) {
-      setMessage('You have the correct weight')
+      setMessage("You have the correct weight");
     } else if (bmi >= 25 && bmi < 30) {
-      setMessage('You are overweight')
+      setMessage("You are overweight");
     } else if (bmi >= 30 && bmi < 35) {
-      setMessage('You have 1st degree obesity')
+      setMessage("You have 1st degree obesity");
     } else if (bmi >= 35) {
-      setMessage('You have obesity treated clinically')
+      setMessage("You have obesity treated clinically");
     }
-  }, [bmi])
+  }, [bmi]);
 
-  let imgSrc
+  let imgSrc;
 
   if (bmi < 18.5) {
-    imgSrc = require('./images/img1.jpg')
+    imgSrc = require("./images/img1.jpg");
   } else if (bmi >= 18.5 && bmi < 25) {
-    imgSrc = require('./images/img2.jpg')
+    imgSrc = require("./images/img2.jpg");
   } else if (bmi >= 25 && bmi < 30) {
-    imgSrc = require('./images/img3.jpg')
+    imgSrc = require("./images/img3.jpg");
   } else if (bmi >= 30 && bmi < 35) {
-    imgSrc = require('./images/img4.jpg')
+    imgSrc = require("./images/img4.jpg");
   } else if (bmi >= 35) {
-    imgSrc = require('./images/img5.jpg')
+    imgSrc = require("./images/img5.jpg");
   }
 
   let reload = () => {
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   return (
     <div className="app">
@@ -110,8 +114,17 @@ function App() {
         </div>
         <div className="images">{bmi ? <img src={imgSrc} alt="" /> : null}</div>
       </div>
+      {show ? (
+        <Modal show={show} onClose={handleOnClick}>
+          {weight || height ? (
+            <p>Please enter numbers</p>
+          ) : (
+            <p>Please enter your details</p>
+          )}
+        </Modal>
+      ) : null}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

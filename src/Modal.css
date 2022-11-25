@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.modal-content {
+    width: 500px;
+    background-color: white;
+    color: black;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 10px;
+    color: black;
+}
+
+.modal-title {
+    margin: 0;
+    color: red;
+}
+
+.modal-title p {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.modal-title p span {
+    margin-right: 5px;
+}
+
+.modal-body {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-button {
+    font-weight: bold;
+    background-color: black;
+    padding: .2rem;
+    border: 2px solid black;
+    border-radius: 6px;
+    width: 5rem;
+    height: auto;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.modal-button:hover {
+    scale: 110%;
+}
