@@ -6,7 +6,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,8 +16,10 @@
 
 .modal-content {
     width: 500px;
+    height: auto;
     background-color: white;
     color: black;
+    border-radius: 4px;
 }
 
 .modal-header,
@@ -40,19 +42,18 @@
 }
 
 .modal-title p span {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .modal-body {
     padding: 10px;
     border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
 }
 
 .modal-button {
     font-weight: bold;
     background-color: black;
-    padding: .2rem;
+    padding: .4rem;
     border: 2px solid black;
     border-radius: 6px;
     width: 5rem;
@@ -64,4 +65,8 @@
 
 .modal-button:hover {
     scale: 110%;
+}
+
+.modal-title p {
+    text-transform: none;
 }

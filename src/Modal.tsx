@@ -1,11 +1,11 @@
 import React from "react";
 import "./Modal.css";
-import { FaExclamation } from "react-icons/fa";
+import { FaExclamationCircle } from "react-icons/fa";
 
-interface ModalTypes {
-  onClose: any;
+export interface ModalTypes {
+  onClose: (e:  React.MouseEvent<HTMLButtonElement>) => void;
   show: boolean;
-  children: any;
+  children: React.ReactNode;
 }
 
 const Modal = (props: ModalTypes) => {
@@ -15,15 +15,15 @@ const Modal = (props: ModalTypes) => {
     return null;
   }
   return (
-    <div className="modal" onClick={onClose}>
+    <div className="modal">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="model-header">
           <h4 className="modal-title">
             <p>
               <span>
-                <FaExclamation />
-              </span>{" "}
-              Ooops!{" "}
+                <FaExclamationCircle />
+              </span>
+              Ooops!
             </p>
           </h4>
         </div>

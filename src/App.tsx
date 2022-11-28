@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, MouseEvent } from "react";
 import "./App.css";
 import Modal from "./Modal";
 
@@ -23,11 +23,11 @@ function App() {
     setHeight(value);
   };
 
-  const handleOnClick = () => {
+  const handleOnClick = (event: MouseEvent<HTMLButtonElement>): void => {
     setShow(false);
   };
 
-  let calcBmi = (event: React.FormEvent<HTMLButtonElement>): void => {
+  let calcBmi = (event: React.FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     const re = /^(0|[1-9]\d*)([.]\d*)?$/;
@@ -116,7 +116,7 @@ function App() {
       </div>
       {show ? (
         <Modal show={show} onClose={handleOnClick}>
-          {weight || height ? (
+          {weight && height ? (
             <p>Please enter numbers</p>
           ) : (
             <p>Please enter your details</p>
