@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BMITypeScript/static/css/main.d38ea321.css",
-    "main.js": "/BMITypeScript/static/js/main.2a87fc68.js",
+    "main.css": "/BMITypeScript/static/css/main.d36a20fb.css",
+    "main.js": "/BMITypeScript/static/js/main.0fc7d423.js",
     "static/js/787.90e829ea.chunk.js": "/BMITypeScript/static/js/787.90e829ea.chunk.js",
     "static/media/bcg.jpg": "/BMITypeScript/static/media/bcg.bb3e79922041389b88ff.jpg",
     "static/media/img5.jpg": "/BMITypeScript/static/media/img5.1935c1b67b1793e4c525.jpg",
@@ -10,12 +10,12 @@
     "static/media/img3.jpg": "/BMITypeScript/static/media/img3.f3e466ab60a2418fe0b5.jpg",
     "static/media/img2.jpg": "/BMITypeScript/static/media/img2.7dc7fd47720f5adbbc11.jpg",
     "index.html": "/BMITypeScript/index.html",
-    "main.d38ea321.css.map": "/BMITypeScript/static/css/main.d38ea321.css.map",
-    "main.2a87fc68.js.map": "/BMITypeScript/static/js/main.2a87fc68.js.map",
+    "main.d36a20fb.css.map": "/BMITypeScript/static/css/main.d36a20fb.css.map",
+    "main.0fc7d423.js.map": "/BMITypeScript/static/js/main.0fc7d423.js.map",
     "787.90e829ea.chunk.js.map": "/BMITypeScript/static/js/787.90e829ea.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d38ea321.css",
-    "static/js/main.2a87fc68.js"
+    "static/css/main.d36a20fb.css",
+    "static/js/main.0fc7d423.js"
   ]
 }
