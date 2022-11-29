@@ -1,9 +1,9 @@
 import React from "react";
-import "./Modal.css";
+import "../styles/Modal.css";
 import { FaExclamationCircle } from "react-icons/fa";
 
 export interface ModalTypes {
-  onClose: (e:  React.MouseEvent<HTMLButtonElement>) => void;
+  onClose: (e: React.MouseEvent<HTMLButtonElement>) => void;
   show: boolean;
   children: React.ReactNode;
 }
