@@ -1,8 +1,7 @@
 {
   "files": {
     "main.css": "/BMITypeScript/static/css/main.d36a20fb.css",
-    "main.js": "/BMITypeScript/static/js/main.0fc7d423.js",
-    "static/js/787.90e829ea.chunk.js": "/BMITypeScript/static/js/787.90e829ea.chunk.js",
+    "main.js": "/BMITypeScript/static/js/main.860a3b54.js",
     "static/media/bcg.jpg": "/BMITypeScript/static/media/bcg.bb3e79922041389b88ff.jpg",
     "static/media/img5.jpg": "/BMITypeScript/static/media/img5.1935c1b67b1793e4c525.jpg",
     "static/media/img1.jpg": "/BMITypeScript/static/media/img1.cf030b12c62254870c92.jpg",
@@ -11,11 +10,10 @@
     "static/media/img2.jpg": "/BMITypeScript/static/media/img2.7dc7fd47720f5adbbc11.jpg",
     "index.html": "/BMITypeScript/index.html",
     "main.d36a20fb.css.map": "/BMITypeScript/static/css/main.d36a20fb.css.map",
-    "main.0fc7d423.js.map": "/BMITypeScript/static/js/main.0fc7d423.js.map",
-    "787.90e829ea.chunk.js.map": "/BMITypeScript/static/js/787.90e829ea.chunk.js.map"
+    "main.860a3b54.js.map": "/BMITypeScript/static/js/main.860a3b54.js.map"
   },
   "entrypoints": [
     "static/css/main.d36a20fb.css",
-    "static/js/main.0fc7d423.js"
+    "static/js/main.860a3b54.js"
   ]
 }
