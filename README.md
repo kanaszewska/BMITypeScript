@@ -23,3 +23,6 @@ https://kanaszewska.github.io/BMITypeScript/
 # Screenshots
 
 ![project7](https://user-images.githubusercontent.com/106904594/201999004-aece89fa-aa79-41a2-add1-c14970c1349e.jpg)
+
+![sxa](https://user-images.githubusercontent.com/106904594/205342044-c431c514-52ef-4d21-9ab1-f9abd1d1ad61.png)
+
